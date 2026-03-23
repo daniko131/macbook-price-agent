@@ -1,9 +1,7 @@
 name: MacBook Price Checker
 
 on:
-  schedule:
-    - cron: '0 */6 * * *' # רץ כל 6 שעות
-  workflow_dispatch: # כפתור להרצה ידנית
+  workflow_dispatch: # מאפשר לך להריץ ידנית בלחיצת כפתור
 
 jobs:
   run-scraper:
@@ -18,9 +16,7 @@ jobs:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          playwright install chromium # השורה החדשה שהוספנו!
+        run: pip install duckduckgo_search
 
       - name: Run the script
         run: python scraper.py
